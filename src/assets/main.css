@@ -9,7 +9,8 @@
 
   /* Typefaces */
   --display-en: "Figtree", system-ui, sans-serif;
-  --body-en: "Figtree", sans-serif;
+  --body-en: "Figtree", system-ui, sans-serif;
+  --display-grotesk:"Space Grotesk", "Figtree", system-ui, sans-serif;
 
   --display-th: "IBM Plex Sans Thai Looped", sans-serif;
   --body-th: "IBM Plex Sans Thai Looped", sans-serif;
@@ -37,4 +38,3 @@
     font-weight: 400;
   }
 }
-

@@ -1,18 +1,16 @@
 <script setup>
     import { RouterView } from 'vue-router';
-    import Nav from './components/nav.vue';
+    import Navbar from './components/Navbar.vue';
     import Footer from './components/footer.vue';
-    import homeView from './components/homeView.vue';
 </script>
 
 <template>
-  <div class="min-h-dvh">
-    <Nav />
-    <main class="mt-16">
-      <Router-view />
+  <div class="min-h-screen flex flex-col">
+    <Navbar />
+    <main class="flex-1 pt-16">
+      <RouterView />
     </main>
-    <Footer class="mt-16" />
-    <homeView />
+    <Footer/>
   </div>
 </template>
 
