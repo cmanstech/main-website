@@ -1,7 +1,36 @@
 <template>
-    <section
-        class="relative h-screen w-full flex flex-col items-center justify-center bg-(--secondary-taupe) text-var(--eggwhite) px-30"
-    >
+    <h1>
+        ?
+    </h1>
 
-    </section>
 </template>
+
+
+
+<!-- <script setup>
+    import { VueLenis, useLenis } from 'lenis/vue' // Also available as global imports, no need to import them manually
+    import { watch } from 'vue'
+
+    const lenisOptions = {
+    // lenis options (optional)
+    }
+
+    const lenis = useLenis((lenis) => {
+    // called every scroll
+    console.log(lenis)
+    })
+
+    watch(
+    lenis,
+    (lenis) => {
+        // lenis instance
+        console.log(lenis)
+    },
+    { immediate: true }
+    )
+</script>
+
+<template>
+    <VueLenis root :options="lenisOptions"/>
+
+</template> -->

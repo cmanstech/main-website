@@ -70,12 +70,7 @@ onMounted(() => {
         class="w-full h-full object-cover"
         loading="lazy"
       />
-      <video
-        v-else-if="mediaType==='video'"
-        :src="src"
-        class="w-full h-full object-cover"
-        autoplay muted playsinline loop
-      />
+
       <canvas v-else ref="canvasRef" class="w-full h-full"></canvas>
 
       <!-- darken overlay -->
@@ -114,14 +109,20 @@ onMounted(() => {
           </div>
         </div>
 
+        <div class="">
+
+        </div>
+
         <!-- spacer -->
         <div class="lg:col-span-6" />
       </div>
     </div>
+
+    
   </section>
 </template>
 
 <style scoped>
-.font-en { font-family: var(--body-en); }
-.font-en-display { font-family: var(--display-en); font-size: clamp(2.6rem, 6vw, 4.6rem); }
+  .font-en { font-family: var(--body-en); }
+  .font-en-display { font-family: var(--display-en); font-size: clamp(2.6rem, 6vw, 4.6rem); }
 </style>
