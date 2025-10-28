@@ -1,34 +1,32 @@
 <script setup>
-    defineProps({
-        kicker: { type: String, default: '' },
-        title: { type: String, required: true },
-        subtitle: { type: String, default: '' },
-        primaryText: { type: String, default: 'Get Started' },
-        secondaryText: { type: String, default: 'View Projects' },
-    })
+    import HeroSection from '@/components/HeroSection.vue'
+    import SectionSplit from '@/components/SectionSplit.vue';
+    import FeaturedProjects from '@/components/FeaturedProjects.vue';
+    import ClientsSection from '@/components/ClientsSection.vue';
+    import Footer from '@/components/footer.vue';
 </script>
 
 <template>
-    <Navbar />
-    <section class="relative">
-        <div class="mx-auto max-w-6xl px-6 py-16 md:py-24">
-            <p v-if="kicker" class="text-xs uppercase tracking-widest text-black">
-                {{ kicker }}
-            </p>
-            <h1 class="mt-3 text-4xl md:text-6xl font-(--display-en) leading-[1.1]">
-                {{ title }}
-            </h1>
-            <p class="mt-4 md:text-lg text-black max-w-3xl">
-                {{ subtitle }}
-            </p>
-            <div class="mt-8 flex gap-3">
-                <button class="px-5 py-2.5 rounded-xl bg-black text-primary-eggwhite hover:bg-gray-800 transition">
-                    {{ primaryText }}
-                </button>
-                <button class="px-5 py-2.5 rounded-xl border border-gray-500 hover:bg-gray-50 transition">
-                    {{ secondaryText }}
-                </button>
-            </div>
-        </div>
-    </section>
+<HeroSection />
+    <SectionSplit mediaType="image" src="/media/field-robot.jpg" :darken="0.35">
+      <template #kicker>Technology</template>
+      <template #title>
+        We invest design & engineering where reliability meets emotion.
+      </template>
+      <template #desc>
+        Zero-downtime infra, type-first UI, and craft that scales — so products feel effortless at any load.
+      </template>
+      <template #cta>
+        <RouterLink
+          to="/projects"
+          class="inline-flex items-center gap-2 rounded-full border border-white/70 px-4 py-2 text-sm text-white hover:bg-white hover:text-(--secondary-darkbrown) transition"
+        >
+          See work
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </RouterLink>
+      </template>
+    </SectionSplit>  
+  <FeaturedProjects />
+  <ClientsSection />
+  <Footer />  
 </template>
