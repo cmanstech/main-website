@@ -13,7 +13,7 @@
   /* Typefaces */
   --display-en: "Figtree", system-ui, sans-serif;
   --body-en: "Figtree", system-ui, sans-serif;
-  --display-grotesk:"Space Mono", "Figtree", system-ui, sans-serif;
+  --display-grotesk:"Space Mono", system-ui, sans-serif;
 
   --display-th: "IBM Plex Sans Thai Looped", sans-serif;
   --body-th: "IBM Plex Sans Thai Looped", sans-serif;
@@ -47,4 +47,12 @@
   .text-brown { color: var(--secondary-darkbrown); }
   .bg-eggwhite { color: var(--primary-eggwhite); }
   .bg-brown { color: var(--secondary-darkbrown);}
+}
+
+@theme {
+  --breakpoint-sm: 500px;
+  --breakpoint-md: 750px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
 }

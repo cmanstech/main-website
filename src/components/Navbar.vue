@@ -1,33 +1,41 @@
-<script>
-    // import { ref, onMounted, onUnmounted } from "vue";
-    import { RouterLink } from "vue-router";
+<script setup>
+    import { onMounted, onUnmounted, ref } from "vue";
+    import { RouterLink, useRouter } from "vue-router";
 
-    // const isScrolled = ref(false);
+    const isOpen = ref(false);
+    const isScrolled = ref(false);
 
-    // const handScroll = () => {
-    //     isScrolled.value = window.scrollY > 50;
-    // };
-    // onMounted(() => {
-    //     window.addEventListener("scroll", handScroll);
-    // });
-    // onUnmounted(() => {
-    //     window.removeEventListener("scroll", handScroll);
-    // });
+    const toggle = () => (isOpen.value = !isOpen.value);
+    const close = () => (isOpen.value = false);
 
-    export default {
-        data() {
-            return {
-                scrolledPastTreshold: false,
-            };
-        },
-        methods: {
-            handleScrolled(event) {
-                const scrollPosition = event.target.scrollTop;
-                const treshold = 100;
-                this.scrolledPastTreshold = scrollPosition > treshold;
-            },
-        },
+    const onScroll = () => {
+        isScrolled.value = window.scrollY > 50;
     }
+
+    onMounted(() => {
+        window.addEventListener("scroll", onScroll, { passive: true })
+    })
+    onUnmounted(() => {
+        window.removeEventListener("scroll", onScroll)
+    }) 
+
+    const router = useRouter();
+    useRouter().afterEach(() => close());
+
+    // export default {
+    //     data() {
+    //         return {
+    //             scrolledPastTreshold: false,
+    //         };
+    //     },
+    //     methods: {
+    //         handleScrolled(event) {
+    //             const scrollPosition = event.target.scrollTop;
+    //             const treshold = 100;
+    //             this.scrolledPastTreshold = scrollPosition > treshold;
+    //         },
+    //     },
+    // }
 </script>
 
 
@@ -35,13 +43,15 @@
 <template>
     <header
     :class="[
-        'fixed top-0 left-0 w-full bg-transparent text-(--eggwhite) z-50 transition-all duration-500 ease-in-out mix-blend-multiply',
+        'fixed inset-x-0 top-0 left-0 w-full bg-transparent text-white z-50 transition-all duration-500 ease-in-out mix-blend-difference',
         isScrolled
             ? 'bg-transparent'
             : 'backdrop-blur-0'
+            // ? ''
+            // : ''
     ]"
     >
-    <nav class="max-w-none mx-[30px] grid grid-cols-[1fr_auto_1fr] items-center justify-between py-2.5 "
+    <nav class="hidden md:grid max-w-none mx-[30px] grid-cols-[1fr_auto_1fr] items-center justify-between py-2.5"
     >
 
     <!-- left menu -->
@@ -66,7 +76,7 @@
     <!-- logo -->
     <RouterLink to="/" class="flex items-center justify-center">
         <img
-        src="/src/assets/cmans-tech-Hori.svg"
+        src="@/assets/svg/cmans-tech-Hori-white.svg"
         alt="CTechLogo"
         class="block h-8 w-[220px]"
         />
@@ -90,7 +100,39 @@
             </RouterLink>
         </li>
      </ul>
+
+     <!-- mobile -->
+
+     <button
+        class="p-2 outline-none"
+        @click="toggle"
+        :aria-expanded="isOpen ? 'true' : 'false' "
+        aria-label="Toggle-menu"
+     >
+        <svg v-if="!isOpen" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <svg v-else xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+     </button>
     </nav>
+
+        <transition name="fadeslide">
+            <div
+                v-if="isOpen"
+                class="md:hidden mx-[-30px] mt-2 rounded-2xl bg-black-70 text-(--primary-eggwhite) backdrop-blur p-4 border border-(--primary-eggwhite)/10"
+            >
+                <ul class="space-y-2">
+                    <li><RouterLink class="nav-link block py-2" to="/" @click="close">Home</RouterLink></li>
+                    <li><RouterLink class="nav-link block py-2" to="/" @click="close">About Us</RouterLink></li>
+                    <li><RouterLink class="nav-link block py-2" to="/" @click="close">Services</RouterLink></li>
+                    <li><RouterLink class="nav-link block py-2" to="/" @click="close">Projects</RouterLink></li>
+                    <li><RouterLink class="nav-link block py-2" to="/" @click="close">Contact Us</RouterLink></li>
+                    <li><RouterLink class="nav-link block py-2" to="/" @click="close">Blog</RouterLink></li>
+                </ul>
+            </div>
+        </transition>
     </header>
 </template>
 
@@ -115,5 +157,9 @@
         color: white;
         background-color: black;
     }
+
+    .fade-slide-enter-active, .fade-slide-leave-active { transition: all .22 ease; }
+    .fade-slide-enter-from { opacity: 0; transform: translateY(-6px); }
+    .fade-slide-leave-to { opacity: 0; transform: translateY(-6px); }
     </style>
 

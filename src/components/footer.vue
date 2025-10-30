@@ -1,10 +1,8 @@
-<!-- <template>
-    <section
-        class="relative h-screen w-full flex flex-col items-center justify-center bg-(--secondary-darkbrown) text-var(--eggwhite) px-30"
-    >
+<script setup>
+  import { RouterLink } from 'vue-router'
 
-    </section>
-</template> -->
+</script>
+
 
 
 <template>
@@ -20,7 +18,7 @@
           style="font-family: var(--display-en) text-(--primary-eggwhite)"
         
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum pretium arcu, id iaculis tortor pharetra sit amet. Aliquam et est ultricies
+          Blending design and engineering to craft digital experiences that last. We build technology that scales with you. Reliable, adaptable, and future-ready.
         </h2>
 
         <p class="mt-10 opacity-90">
@@ -45,7 +43,7 @@
           >
             CONTACT&nbsp;US
             <span class="grid size-8 rounded-full border border-current place-items-center">
-              <!-- ใช้ไอคอนที่มีอยู่ก็ได้ -->
+
               <svg viewBox="0 0 24 24" class="size-4" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M7 17L17 7M7 7h10v10" />
               </svg>
@@ -55,35 +53,31 @@
       </div>
     </div>
 
-    <!-- Divider -->
+
     <div class="mx-[30px] h-px bg-(--primary-eggwhite)/40"></div>
 
-    <!-- BOTTOM: big logo full width within same side padding -->
+
     <div class="mx-[30px] py-10 md:py-12">
-      <!-- ถ้าเป็นไฟล์ภาพ .svg -->
       <img
-        src="/src/assets/cmans-tech-Hori.svg"
+        src="@/assets/svg/cmans-tech-Hori-white.svg"
         alt="CMANS TECH"
-        class="w-full h-auto invert"
+        class="w-full h-auto"
       />
     </div>
 
-    <!-- Copyright -->
     <div class="mx-[30px] pb-8 text-center text-xs tracking-wider opacity-80 font-(--en-grotesk)">
       © 2025 CMANS TECH CO., LTD.  All Rights Reserved.
     </div>
   </footer>
 </template>
 
-<script setup>
-import { RouterLink } from 'vue-router'
-</script>
+
 
 <style scoped>
-.footer-link {
-  color: inherit;
-  text-decoration: none;
-  transition: opacity .2s ease;
-}
-.footer-link:hover { opacity: .8; }
+    .footer-link {
+      color: inherit;
+      text-decoration: none;
+      transition: opacity .2s ease;
+    }
+    .footer-link:hover { opacity: .8; }
 </style>
