@@ -25,7 +25,7 @@
   <FlowFieldBG />
   <ProcessLanding />
     <SectionSplit
-      src="src/assets/mockups-1.jpg"
+      src="require('@/assets/mockups-1.jpg')"
       kicker="WHY US"
       title="Built with logic. Refined with design. Sustained by continuity."
       desc="Zero-downtime infra, type-first UI, and craft that scales — so products feel effortless at any load."
