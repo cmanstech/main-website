@@ -41,7 +41,6 @@
       <ul class="flex items-center justify-end gap-10">
         <li><RouterLink class="nav-link" to="/projects">Projects</RouterLink></li>
         <li><RouterLink class="nav-link" to="/contact">Contact Us</RouterLink></li>
-        <li><RouterLink class="nav-link" to="/blog">Blog</RouterLink></li>
       </ul>
     </nav>
 
