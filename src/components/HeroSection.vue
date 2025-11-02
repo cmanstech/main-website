@@ -15,7 +15,7 @@
             loop
             playsinline
         >
-            <source src="/src/assets/HeroSection-vid.mp4" type="video/mp4" />
+            <source src="require('@/assets/HeroSection-vid.mp4')" type="video/mp4" />
         </video>
 
         <div class="absolute inset-0 bg-black/25"></div>
