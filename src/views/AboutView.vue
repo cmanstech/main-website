@@ -1,7 +1,5 @@
 <template>
     <div>
-        <h1>huhu</h1>
-        <p>about WhAT!?!?</p>
-        <nuxt-link to="/">Go to home</nuxt-link>
+        <h1>.</h1>
     </div>
 </template>

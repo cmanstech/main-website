@@ -20,13 +20,13 @@
         },
     ])
 
-    /** เปิด/ปิดได้ทีละอันเดียว */
+    
     const active = ref(0)
     const toggle = (i) => {
     active.value = active.value === i ? -1 : i
     }
 
-    /** helper สำหรับ transition ความสูง auto */
+    
     const enter = (el) => {
             el.style.height = '0px'
             el.style.opacity = '0'
@@ -101,7 +101,7 @@
                             <span
                                 class="shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full border border-(--secondary-darkbrown)/50 text-(--secondary-darkbrown)"
                             >
-                                <!-- แสดงลูกศรต่างกัน: เปิด = เฉียงขึ้นขวา, ปิด = ลง -->
+                               
                                 <svg
                                     v-if="active === i"
                                     viewBox="0 0 24 24"
