@@ -10,12 +10,7 @@
     // import mock4 from '@/assets/mockups-4.jpg'
     import SectionSplit from '@/components/SectionSplit.vue'
 
-    // const slides = [
-    //   { src: mock1, kicker: 'TECH',  title: 'this is title1', desc: 'this is subtitle1' },
-    //   { src: mock2, kicker: 'OPS',   title: 'this is title2', desc: 'this is subtitle2' },
-    //   { src: mock3, kicker: 'UI',    title: 'this is title3', desc: 'this is subtitle3' },
-    //   { src: mock4, kicker: 'DATA',  title: 'this is title4', desc: 'this is subtitle4' },
-    // ]
+
 </script>
 
 

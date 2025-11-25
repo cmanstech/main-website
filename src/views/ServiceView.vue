@@ -1,5 +1,10 @@
+<script setup>
+    import HeroSection from '@/components/HeroSection.vue';
+    import ServicesServices from '@/components/ServicesServices.vue';
+</script>
+
 <template>
-    <p>
-        .
-    </p>
+    <HeroSection />
+    <ServicesServices />
+    
 </template>

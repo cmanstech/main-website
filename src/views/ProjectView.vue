@@ -1,5 +1,9 @@
+<script setup>
+    import HeroSection from '@/components/HeroSection.vue';
+    import ProjectsProjects from '@/components/ProjectsProjects.vue';
+</script>
+
 <template>
-    <p>
-        .
-    </p>
+    <HeroSection />
+    <ProjectsProjects />
 </template>

@@ -2,6 +2,22 @@
     import { RouterLink } from 'vue-router';
     import BaseButton from './buttons/BaseButton.vue';
     import CtaArrowButton from './buttons/CtaArrowButton.vue';
+    import heroVideo from '@/assets/HeroSection-vid.mp4'
+
+    const props = defineProps({ 
+      video: {
+        type: String,
+        default: () => new URL('@/assets/HeroSection-vid.mp4', import.meta.url).href
+      },
+      heading: {
+        type: Array,
+        default: () => ['Code.', 'Craft.', 'Continuity.']
+      },
+      subtext: {
+        type: String,
+        default: () => 'We turn complex infrastructure into effortless experiences.'
+      },
+    })
 
 </script>
 
@@ -15,7 +31,7 @@
             loop
             playsinline
         >
-            <source src="require('@/assets/HeroSection-vid.mp4')" type="video/mp4" />
+            <source :src="props.video" type="video/mp4" />
         </video>
 
         <div class="absolute inset-0 bg-black/25"></div>
@@ -29,14 +45,16 @@
     <!-- center heading -->
     <div class="relative z-10 h-full flex items-center justify-center text-center px-6">
       <h1 class="leading-[0.95] text-[clamp(20px,8vw,100px)] font-display-en text-(--primary-eggwhite)">
-        Code.<br/>Craft.<br/>Continuity.
+        <span v-for="(line, i) in props.heading" :key="i">
+          {{ line }}<br/>
+        </span>
       </h1>
     </div>
 
     <!-- bottom copy + scroll CTA (pin to bottom) -->
     <div class="absolute z-10 inset-x-0 bottom-10 flex flex-col items-center gap-4 px-6">
       <p class="text-md opacity-85 text-(--primary-eggwhite) text-center font-display-en-space">
-        We turn complex infrastructure into effortless experiences.
+        {{ props.subtext}}
       </p>
 
       <div class="mt-10 md:mt-16 flex justify-end">

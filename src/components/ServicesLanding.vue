@@ -59,13 +59,12 @@
             <!-- left label + divider -->
             <div class="col-span-11 lg:col-span-4 flex items-start gap-6">
                 <span class="text-[40px] font-(--display-en) text-(--secondary-darkbrown)">Services</span>
-                <span class="h-px flex-1 bg-(--secondary-darkbrown)/30 translate-y-[0.45em]"></span>
+                <!-- <span class="h-px flex-1 bg-(--secondary-darkbrown)/30 translate-y-[0.45em]"></span> -->
             </div>
 
             <!-- right big copy -->
             <div class="col-span-11 lg:col-span-8">
-                <p
-                    class="text-(--secondary-darkbrown) font-(--display-en) leading-tight text-[clamp(22px,3.1vw,32px)]/tight"
+                <p class="text-(--secondary-darkbrown) font-(--display-en) leading-tight text-[clamp(22px,3.1vw,32px)]/tight"
                 >
                     We craft IT systems and plugins that flow effortlessly across platforms <br/>
                     enhancing every interaction and elevating how your business works.

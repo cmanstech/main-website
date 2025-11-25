@@ -9,7 +9,8 @@ const router = createRouter({
     { path: '/about', name: 'about', component: () => import('@/views/AboutView.vue')},
     { path: '/projects', name: 'projects', component: () => import('@/views/ProjectView.vue')},
     { path: '/contact', name: 'contact', component: () => import('@/views/ContactView.vue')}, 
-    { path: '/blog', name: 'blog', component: () => import('@/views/BlogView.vue')}
+    { path:'/services', name: 'services', component: () => import('@/views/ServiceView.vue')}
+    // { path: '/blog', name: 'blog', component: () => import('@/views/BlogView.vue')}
   ],
       scrollBehavior() { return { top: 0 } }
 })

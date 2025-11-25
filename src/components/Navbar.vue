@@ -19,7 +19,6 @@ router.afterEach(() => close())
 <template>
   <header
     :class="[
-      // ใช้ mix-blend เฉพาะเดสก์ท็อป กันปัญหาข้อความซีดบนมือถือ
       'fixed inset-x-0 top-0 z-50 transition-all duration-300 text-white lg:mix-blend-difference mix-blend-normal',
       isScrolled ? 'bg-transparent' : 'backdrop-blur-0'
     ]"
@@ -33,9 +32,9 @@ router.afterEach(() => close())
         <li><RouterLink class="nav-link" to="/services">Services</RouterLink></li>
       </ul>
 
-      <!-- center logo -->
+      <!-- center -->
       <RouterLink to="/" class="flex items-center justify-center">
-        <img src="@/assets/svg/cmans-tech-Hori-white.svg" alt="CMANS TECH" class="h-8 w-[220px]" />
+        <img src="@/assets/svg/ctech-new-logo-02.svg" alt="CMANS TECH" class="h-12 w-[200px]" />
       </RouterLink>
 
       <!-- right -->
@@ -54,7 +53,7 @@ router.afterEach(() => close())
         class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
         aria-label="Home"
       >
-        <img src="@/assets/svg/cmans-tech-Hori-white.svg" alt="CMANS TECH" class="h-7 w-[180px]" />
+        <img src="@/assets/svg/ctech-new-logo-02.svg" alt="CMANS TECH" class="h-7 w-[180px]" />
       </RouterLink>
 
       <!-- hamburger ขวา -->

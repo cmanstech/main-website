@@ -59,7 +59,7 @@
 
     <div class="mx-[30px] py-10 md:py-12">
       <img
-        src="@/assets/svg/cmans-tech-Hori-white.svg"
+        src="/src/assets/svg/ctech-new-logo-02.svg"
         alt="CMANS TECH"
         class="w-full h-auto"
       />
