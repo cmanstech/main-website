@@ -1,6 +1,9 @@
 <script setup>
     import { ref } from 'vue'
-    import imgCustom from '/public/services-custom.jpg'
+    import imgCustom from '/public/img/services-custom.jpg'
+    import imgPlugins from '/public/img/services-plugins.jpg'
+    import imgScalable from '/public/img/services-scalable.jpg'
+    import imgUi from '/public/img/services-ui.jpg'
 
     const items = ref([
     {
@@ -12,17 +15,20 @@
     {
         title: 'Plugins & Integrations',
         desc: 'Seamless connections for better performance. Enhance your existing systems with custom-built plugins and integrations such as Payment Gateway, Booking, or E-Commerce solutions. We ensure new and legacy systems work together smoothly, reducing complexity and increasing overall efficiency.',
-        body: 'More detailed copy about plugins & integrations can go here. Explain how we connect legacy systems, gateways, CRMs, and analytics so everything feels like one product.'
+        body: 'More detailed copy about plugins & integrations can go here. Explain how we connect legacy systems, gateways, CRMs, and analytics so everything feels like one product.',
+        img: imgPlugins
     },
     {
         title: 'Scalable & Secure',
-        desc: 'Zero-downtime deployments, observability by default, least-privilege access, and encryption in transit/at rest.',
-        body: 'Talk about infra, monitoring, alerting, rollbacks, and security posture here. This is the long-form description that shows up when this item is active.'
+        desc: 'Engineered for growth and fortified for safety. We design architectures that scale without limits while ensuring encryption, reliability, and zero-downtime protection across every layer of your system.',
+        body: 'Talk about infra, monitoring, alerting, rollbacks, and security posture here. This is the long-form description that shows up when this item is active.',
+        img: imgScalable
     },
     {
         title: 'User-Friendly Interfaces',
-        desc: 'Type-first UI, motion that serves meaning, and accessibility that’s built-in — not bolted on.',
-        body: 'Explain design systems, UX patterns, accessibility, and how we keep interfaces clear even when the system is complex underneath.'
+        desc: 'Interfaces designed for clarity and ease. We craft layouts that feel intuitive from the first interaction, reducing friction and making complex systems simple to use for everyone.',
+        body: 'Explain design systems, UX patterns, accessibility, and how we keep interfaces clear even when the system is complex underneath.',
+        img: imgUi
     },
     ])
 
@@ -66,7 +72,7 @@
                 <span class="text-[40px] font-(--display-en) text-(--secondary-darkbrown)">
                     Services
                 </span>
-                <span class="h-px flex-1 bg-(--secondary-darkbrown)/30 translate-y-[0.45em]"></span>
+                <!-- <span class="h-px flex-1 bg-(--secondary-darkbrown)/30 translate-y-[0.45em]"></span> -->
                 </div>
 
                 <p
@@ -133,10 +139,10 @@
 
                         <!-- รูป -->
                         <div class="w-full aspect-[3/1.2] bg-neutral-300 mb-6 overflow-hidden">
-                        <!-- ถ้ามี it.image -->
+
                         <img
-                            v-if="it.image"
-                            :src="it.image"
+                            v-if="it.img"
+                            :src="it.img"
                             :alt="it.title"
                             class="w-full h-full object-cover"
                         />
