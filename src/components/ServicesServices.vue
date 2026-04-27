@@ -1,5 +1,6 @@
 <script setup>
     import { ref } from 'vue'
+    const changconnectVideo = new URL('@/assets/For_Website_Cmans_Tech_1.mp4', import.meta.url).href
     import imgCustom from '/public/img/services-custom.jpg'
     import imgPlugins from '/public/img/services-plugins.jpg'
     import imgScalable from '/public/img/services-scalable.jpg'
@@ -86,6 +87,27 @@
 
             <!-- RIGHT: list services + รูป -->
             <div class="col-span-12 lg:col-span-8 divide-y divide-(--secondary-darkbrown)/30">
+
+                <!-- Changconnect — always visible, not collapseable -->
+                <div class="py-10">
+                  <h3 class="text-[clamp(18px,2vw,22px)] font-(--display-grotesk) text-(--secondary-darkbrown) mb-4">
+                    <a href="https://changconnect.cmans.tech/" target="_blank" rel="noopener noreferrer" class="hover:underline">Changconnect</a>
+                  </h3>
+                  <div class="pt-2 text-[15px] leading-6 text-(--secondary-darkbrown)/80">
+                    <p class="max-w-[75ch] mb-6">
+                      Changconnect offers a freemium consulting model — giving you direct access to verified contractors and design professionals at zero upfront cost. Post your project requirements, receive initial proposals, and get expert advice before you commit to anything. Our free tier covers consultation, contractor discovery, and material estimation, while premium tiers unlock priority matching, dedicated project management, and full end-to-end execution support. It's the fastest way to turn a construction idea into a trusted, managed reality.
+                    </p>
+                    <div class="w-full aspect-[3/1.2] bg-black mb-6 overflow-hidden">
+                      <video
+                        class="w-full h-full object-cover"
+                        autoplay muted loop playsinline preload="auto"
+                      >
+                        <source :src="changconnectVideo" type="video/mp4" />
+                      </video>
+                    </div>
+                  </div>
+                </div>
+
                 <div
                 v-for="(it, i) in items"
                 :key="i"

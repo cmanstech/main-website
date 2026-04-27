@@ -10,14 +10,17 @@
     // import mock4 from '@/assets/mockups-4.jpg'
     import SectionSplit from '@/components/SectionSplit.vue'
     import Mockups1 from '/img/mockups-1.jpg'
-
+    import NewProject from '@/components/NewProject.vue'
+import ServicesServices from '@/components/ServicesServices.vue'
+    // const bgVideo = new URL('@/assets/For_Cmans_Tech_Website.mp4', import.meta.url).href
 
 </script>
 
 
 <template>
   <HeroSection />
-  <ServicesLanding/>
+  <ServicesServices/>
+  <NewProject />
   <FlowFieldBG />
   <ProcessLanding />
     <SectionSplit
