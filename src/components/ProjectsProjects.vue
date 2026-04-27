@@ -4,8 +4,8 @@
     'From integrations to full-scale platforms, every project we build combines clean architecture, robust engineering, and the craft that defines CMANS Tech.'
 
 
-  import imgRenny from '@/assets/Renny_mockups.png'
-  import imgHS from '@/assets/mockups-2.jpg'
+  import imgRenny from '/public/img/Renny_mockups.png'
+  import imgHS from '/public/img/mockups-2.jpg'
 </script>
 
 <template>

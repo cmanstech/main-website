@@ -31,7 +31,7 @@
         <ul class="space-y-4 text-[15px] leading-6">
           <li><RouterLink to="/about" class="footer-link">About us</RouterLink></li>
           <li><RouterLink to="/projects" class="footer-link">Projects</RouterLink></li>
-          <li><RouterLink to="/blog" class="footer-link">Blog</RouterLink></li>
+          <!-- <li><RouterLink to="/blog" class="footer-link">Blog</RouterLink></li> -->
         </ul>
 
         <!-- CTA row (right aligned) -->
@@ -54,14 +54,14 @@
     </div>
 
 
-    <div class="mx-[30px] h-px bg-(--primary-eggwhite)/40"></div>
+    <!-- <div class="mx-[30px] h-px bg-(--primary-eggwhite)/40"></div> -->
 
 
-    <div class="mx-[30px] py-10 md:py-12">
+    <div class="mx-[30px] py-10 md:py-12 flex justify-start">
       <img
         src="/src/assets/svg/ctech-new-logo-02.svg"
         alt="CMANS TECH"
-        class="w-full h-auto"
+        class="w-[50vw] h-auto max-w-[400px]"
       />
     </div>
 

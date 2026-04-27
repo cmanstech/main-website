@@ -3,6 +3,9 @@
     import BaseButton from './buttons/BaseButton.vue';
     import CtaArrowButton from './buttons/CtaArrowButton.vue';
     import heroVideo from '@/assets/HeroSection-vid.mp4'
+    import { useI18n } from 'vue-i18n';
+
+    const { t } = useI18n()
 
     const props = defineProps({ 
       video: {
@@ -19,6 +22,7 @@
       },
     })
 
+    
 </script>
 
 
@@ -36,43 +40,43 @@
 
         <div class="absolute inset-0 bg-black/25"></div>
 
-    <!-- bottom gradient for contrast -->
-    <div
-      class="pointer-events-none absolute inset-x-0 bottom-0 h-[32vh]
-             bg-linear-to-t from-black/45 via-black/10 to-transparent"
-    ></div>
+      <!-- bottom gradient for contrast -->
+      <div
+        class="pointer-events-none absolute inset-x-0 bottom-0 h-[32vh]
+              bg-linear-to-t from-black/45 via-black/10 to-transparent"
+      ></div>
 
-    <!-- center heading -->
-    <div class="relative z-10 h-full flex items-center justify-center text-center px-6">
-      <h1 class="leading-[0.95] text-[clamp(20px,8vw,100px)] font-display-en text-(--primary-eggwhite)">
-        <span v-for="(line, i) in props.heading" :key="i">
-          {{ line }}<br/>
-        </span>
-      </h1>
-    </div>
+      <!-- center heading -->
+      <div class="relative z-10 h-full flex items-center justify-center text-center px-6">
+        <h1 class="leading-[0.95] text-[clamp(20px,8vw,100px)] font-display-en text-(--primary-eggwhite)">
+          <span v-for="(line, i) in props.heading" :key="i">
+            {{ line }}<br/>
+          </span>
+        </h1>
+      </div>
 
-    <!-- bottom copy + scroll CTA (pin to bottom) -->
-    <div class="absolute z-10 inset-x-0 bottom-10 flex flex-col items-center gap-4 px-6">
-      <p class="text-md opacity-85 text-(--primary-eggwhite) text-center font-display-en-space">
-        {{ props.subtext}}
-      </p>
+      <!-- bottom copy + scroll CTA (pin to bottom) -->
+      <div class="absolute z-10 inset-x-0 bottom-10 flex flex-col items-center gap-4 px-6">
+        <p class="text-md opacity-85 text-(--primary-eggwhite) text-center font-display-en-space">
+          {{ props.subtext}}
+        </p>
 
-      <div class="mt-10 md:mt-16 flex justify-end">
-          <div
-            to="/contact"
-            class="inline-flex items-center gap-3 rounded-full border border-(--primary-eggwhite)/85 px-5 py-2.5 text-(--primary-eggwhite)
-                   hover:bg-(--primary-eggwhite) hover:text-(--secondary-darkbrown) transition font-display-grotesk"
-          >
-            SCROLL&nbsp;TO&nbsp;EXPLORE
-            <span class="grid size-8 rounded-full border border-current place-items-center">
+        <div class="mt-10 md:mt-16 flex justify-end">
+            <div
+              to="/contact"
+              class="inline-flex items-center gap-3 rounded-full border border-(--primary-eggwhite)/85 px-5 py-2.5 text-(--primary-eggwhite)
+                    hover:bg-(--primary-eggwhite) hover:text-(--secondary-darkbrown) transition font-display-grotesk"
+            >
+              SCROLL&nbsp;TO&nbsp;EXPLORE
+              <span class="grid size-8 rounded-full border border-current place-items-center">
 
-              <svg viewBox="0 0 24 24" class="size-4" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M7 7l10 10M17 7v10H7" />
-              </svg>
-            </span>
-        </div>
-        </div>
-    </div>
+                <svg viewBox="0 0 24 24" class="size-4" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M7 7l10 10M17 7v10H7" />
+                </svg>
+              </span>
+          </div>
+          </div>
+      </div>
     </section>
 </template>
 

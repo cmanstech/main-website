@@ -1,14 +1,14 @@
 <script setup>
-const props = defineProps({
-  src: String,
-  kicker: String,
-  title: String,
-  desc: String,
-  darken: {
-    type: Number,
-    default: 0.4
-  }
-})
+  const props = defineProps({
+    src: String,
+    kicker: String,
+    title: String,
+    desc: String,
+    darken: {
+      type: Number,
+      default: 0.4
+    }
+  })
 </script>
 
 <template>
@@ -32,8 +32,8 @@ const props = defineProps({
 </template>
 
 <style scoped>
-.font-en-display {
-  font-family: var(--display-en);
-  font-size: clamp(2.4rem, 6vw, 4.8rem);
-}
+  .font-en-display {
+    font-family: var(--display-en);
+    font-size: clamp(2.4rem, 6vw, 4.8rem);
+  }
 </style>

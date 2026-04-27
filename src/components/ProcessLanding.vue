@@ -39,7 +39,7 @@ onUnmounted(() => {
         <!-- ซ้าย: หัวข้อ + เส้น -->
         <div class="col-span-11 lg:col-span-4 flex items-start gap-6">
           <span class="text-[40px] font-(--display-en) text-(--secondary-darkbrown)">Our<br/>Process</span>
-          <span class="h-px flex-1 bg-(--secondary-darkbrown)/30 translate-y-[0.7em]"></span>
+          <!-- <span class="h-px flex-1 bg-(--secondary-darkbrown)/30 translate-y-[0.7em]"></span> -->
         </div>
 
         <!-- ขวา: คำอธิบาย -->

@@ -9,18 +9,22 @@
     // import mock3 from '@/assets/mockups-3.jpg'
     // import mock4 from '@/assets/mockups-4.jpg'
     import SectionSplit from '@/components/SectionSplit.vue'
-
+    import Mockups1 from '/img/mockups-1.jpg'
+    import NewProject from '@/components/NewProject.vue'
+import ServicesServices from '@/components/ServicesServices.vue'
+    // const bgVideo = new URL('@/assets/For_Cmans_Tech_Website.mp4', import.meta.url).href
 
 </script>
 
 
 <template>
   <HeroSection />
-  <ServicesLanding/>
+  <ServicesServices/>
+  <NewProject />
   <FlowFieldBG />
   <ProcessLanding />
     <SectionSplit
-      src="require('@/assets/mockups-1.jpg')"
+      :src="Mockups1"
       kicker="WHY US"
       title="Built with logic. Refined with design. Sustained by continuity."
       desc="Zero-downtime infra, type-first UI, and craft that scales — so products feel effortless at any load."
