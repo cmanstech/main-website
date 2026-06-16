@@ -7,12 +7,14 @@
     import Mockups1 from '/img/mockups-1.jpg'
     import NewProject from '@/components/NewProject.vue'
     import ServicesServices from '@/components/ServicesServices.vue'
+    import AnnouncementModal from '@/components/AnnouncementModal.vue'
     import { useI18n } from 'vue-i18n'
 
     const { t } = useI18n()
 </script>
 
 <template>
+  <AnnouncementModal />
   <HeroSection />
   <ServicesServices/>
   <NewProject />

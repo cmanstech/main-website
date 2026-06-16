@@ -74,7 +74,7 @@ const leave = (el) => {
                 {{ t('servicesServices.changconnectDesc') }}
               </p>
               <div class="w-full aspect-[3/1.2] bg-black mb-6 overflow-hidden">
-                <video class="w-full h-full object-cover" autoplay muted loop playsinline preload="auto">
+                <video class="w-full h-full object-cover" autoplay loop playsinline preload="auto">
                   <source :src="changconnectVideo" type="video/mp4" />
                 </video>
               </div>

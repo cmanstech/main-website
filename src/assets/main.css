@@ -11,20 +11,27 @@
   --secondary-taupe: #D5C9BB;
 
   /* Typefaces */
-  --display-en: "Figtree", system-ui, sans-serif;
-  --body-en: "Figtree", system-ui, sans-serif;
-  --display-grotesk:"Space Mono", system-ui, sans-serif;
+  --display-en: "Figtree", "Noto Sans Thai", system-ui, sans-serif;
+  --body-en: "Figtree", "Noto Sans Thai", system-ui, sans-serif;
+  --display-grotesk:"Space Mono", "Noto Sans Thai", system-ui, sans-serif;
 
-  --display-th: "IBM Plex Sans Thai Looped", sans-serif;
-  --body-th: "IBM Plex Sans Thai Looped", sans-serif;
+  --display-th: "Noto Sans Thai", sans-serif;
+  --body-th: "Noto Sans Thai", sans-serif;
 }
 
 @layer base {
-  .html {
-    font-family: var(--body-th);
+  html {
+    font-family: var(--body-en);
     font-weight: 400;
     color: var(--secondary-darkbrown);
     background: var(--primary-eggwhite);
+  }
+  html[lang="th"] {
+    font-family: var(--body-th);
+  }
+  /* Thai script needs extra vertical room for stacked vowels/tone marks */
+  html[lang="th"] body {
+    line-height: 1.5;
   }
   a {
     color: inherit; text-decoration: none;

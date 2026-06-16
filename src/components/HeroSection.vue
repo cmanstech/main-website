@@ -38,7 +38,7 @@ const displaySubtext = computed(() => props.subtext ?? t('hero.subtext'))
 
     <!-- center heading -->
     <div class="relative z-10 h-full flex items-center justify-center text-center px-6">
-      <h1 class="leading-[0.95] text-[clamp(20px,8vw,100px)] font-display-en text-(--primary-eggwhite)">
+      <h1 class="leading-normal text-[clamp(20px,8vw,100px)] font-display-en text-(--primary-eggwhite)">
         <span v-for="(line, i) in displayHeading" :key="i">
           {{ line }}<br/>
         </span>
@@ -72,7 +72,11 @@ const displaySubtext = computed(() => props.subtext ?? t('hero.subtext'))
   @media (prefers-reduced-motion: reduce) {
     video { display: none; }
   }
-  .font-display-grotesk { font-family: "Space Mono"; }
-  .font-display-en { font-family: "Figtree", monospace; }
-  .font-display-en-space { font-family: "Figtree", monospace; }
+  .font-display-grotesk { font-family: "Space Mono", "Noto Sans Thai", monospace; }
+  .font-display-en { font-family: "Figtree", "Noto Sans Thai", monospace; }
+  .font-display-en-space { font-family: "Figtree", "Noto Sans Thai", monospace; }
+
+  /* Thai needs more vertical room for vowels/tone marks */
+  :global(html[lang="th"]) h1 { line-height: 1.35; }
+  :global(html[lang="th"]) .font-display-en-space { line-height: 1.5; }
 </style>

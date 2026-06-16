@@ -12,8 +12,7 @@
       <!-- Left: big copy -->
       <div class="max-w-[min(50vw,720px)]">
         <h2
-          class="text-[clamp(28px,3.2vw,44px)] leading-tight"
-          style="font-family: var(--display-en) text-(--primary-eggwhite)"
+          class="text-[clamp(28px,3.2vw,44px)] leading-tight font-(--display-en) text-(--primary-eggwhite)"
         >
           {{ t('footer.tagline') }}
         </h2>
