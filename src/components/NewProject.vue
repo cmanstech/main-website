@@ -1,18 +1,24 @@
 <script setup>
 import { computed, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const props = defineProps({
-  category:    { type: String, default: 'Project' },
-  heading:     { type: String, default: 'CHANGCONNECT,\nBuilding solutions\nThrough expertise,\nengineering\nand trusted hands.' },
-  description: { type: String, default: 'Introducing "Changconnect" From design consultation to construction execution, we provide end-to-end services tailored to your needs with the right materials and expert craftsmanship.' },
-  ctaLabel:    { type: String, default: 'Visit' },
+  category:    { type: String, default: null },
+  heading:     { type: String, default: null },
+  description: { type: String, default: null },
+  ctaLabel:    { type: String, default: null },
   ctaHref:     { type: String, default: 'https://changconnect.cmans.tech/' },
   videoSrc:    { type: String, default: () => new URL('@/assets/For_Cmans_Tech_Website.mp4', import.meta.url).href },
   videoType:   { type: String, default: 'video/mp4' },
   poster:      { type: String, default: '' },
 });
 
-const headingLines = computed(() => props.heading.split('\n'));
+const displayCategory    = computed(() => props.category    ?? t('newProject.category'));
+const displayDescription = computed(() => props.description ?? t('newProject.description'));
+const displayCtaLabel    = computed(() => props.ctaLabel    ?? t('newProject.cta'));
+const headingLines       = computed(() => (props.heading    ?? t('newProject.heading')).split('\n'));
 
 const slideCount = 2;
 const current = ref(0);
@@ -77,13 +83,13 @@ function onWheel(e) {
     <div class="absolute inset-0 z-10 flex items-center">
       <div class="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
         <div class="max-w-xl">
-          <p class="font-grotesk text-[11px] sm:text-xs tracking-[0.32em] mb-6 text-white/95">{{ category }}</p>
+          <p class="font-grotesk text-[11px] sm:text-xs tracking-[0.32em] mb-6 text-white/95">{{ displayCategory }}</p>
           <h1 class="font-display font-semibold text-white leading-[1.05] tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-[68px]">
             <span v-for="(line, i) in headingLines" :key="i" class="block">{{ line }}</span>
           </h1>
-          <p class="font-body text-sm md:text-[15px] font-semibold text-white/95 mt-8 mb-10 max-w-md leading-relaxed">{{ description }}</p>
+          <p class="font-body text-sm md:text-[15px] font-semibold text-white/95 mt-8 mb-10 max-w-md leading-relaxed">{{ displayDescription }}</p>
           <a :href="ctaHref" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 group select-none">
-            <span class="font-grotesk text-sm md:text-[15px] border border-white/90 rounded-full px-6 py-2 transition-colors duration-300 text-white group-hover:bg-white group-hover:text-black">{{ ctaLabel }}</span>
+            <span class="font-grotesk text-sm md:text-[15px] border border-white/90 rounded-full px-6 py-2 transition-colors duration-300 text-white group-hover:bg-white group-hover:text-black">{{ displayCtaLabel }}</span>
             <span class="w-10 h-10 border border-white/90 rounded-full flex items-center justify-center transition-all duration-300 text-white group-hover:bg-white group-hover:text-black" aria-hidden="true">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="7" y1="17" x2="17" y2="7"></line><polyline points="9 7 17 7 17 15"></polyline>

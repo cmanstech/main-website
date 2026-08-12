@@ -1,6 +1,9 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import { RouterLink, useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+
+const { t, locale } = useI18n()
 
 const isOpen = ref(false)
 const isScrolled = ref(false)
@@ -14,6 +17,12 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
 const router = useRouter()
 router.afterEach(() => close())
+
+function setLocale(lang) {
+  locale.value = lang
+  localStorage.setItem('lang', lang)
+  document.documentElement.lang = lang
+}
 </script>
 
 <template>
@@ -27,9 +36,9 @@ router.afterEach(() => close())
     <nav class="hidden lg:grid mx-[30px] grid-cols-[1fr_auto_1fr] items-center py-3">
       <!-- left -->
       <ul class="flex items-center gap-10">
-        <li><RouterLink class="nav-link" to="/">Home</RouterLink></li>
-        <li><RouterLink class="nav-link" to="/about">About Us</RouterLink></li>
-        <li><RouterLink class="nav-link" to="/services">Services</RouterLink></li>
+        <li><RouterLink class="nav-link" to="/">{{ t('nav.home') }}</RouterLink></li>
+        <li><RouterLink class="nav-link" to="/about">{{ t('nav.about') }}</RouterLink></li>
+        <li><RouterLink class="nav-link" to="/services">{{ t('nav.services') }}</RouterLink></li>
       </ul>
 
       <!-- center -->
@@ -39,15 +48,26 @@ router.afterEach(() => close())
 
       <!-- right -->
       <ul class="flex items-center justify-end gap-10">
-        <li><RouterLink class="nav-link" to="/projects">Projects</RouterLink></li>
-        <li><RouterLink class="nav-link" to="/contact">Contact Us</RouterLink></li>
-        <!-- <li><RouterLink class="nav-link" to="/blog">Blog</RouterLink></li> -->
+        <li><RouterLink class="nav-link" to="/projects">{{ t('nav.projects') }}</RouterLink></li>
+        <li><RouterLink class="nav-link" to="/contact">{{ t('nav.contact') }}</RouterLink></li>
+        <!-- lang switcher -->
+        <li class="flex items-center gap-1 text-sm font-mono">
+          <button
+            :class="['lang-btn', locale === 'en' ? 'opacity-100' : 'opacity-40']"
+            @click="setLocale('en')"
+          >EN</button>
+          <span class="opacity-40">|</span>
+          <button
+            :class="['lang-btn', locale === 'th' ? 'opacity-100' : 'opacity-40']"
+            @click="setLocale('th')"
+          >TH</button>
+        </li>
       </ul>
     </nav>
 
-    <!-- ===== Mobile (<lg): logo กลาง + hamburger ขวา ===== -->
+    <!-- ===== Mobile (<lg) ===== -->
     <div class="lg:hidden relative mx-[30px] py-3">
-      <!-- logo กลาง -->
+      <!-- logo center -->
       <RouterLink
         to="/"
         class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
@@ -56,7 +76,7 @@ router.afterEach(() => close())
         <img src="@/assets/svg/ctech-new-logo-02.svg" alt="CMANS TECH" class="h-7 w-[180px]" />
       </RouterLink>
 
-      <!-- hamburger ขวา -->
+      <!-- hamburger right -->
       <div class="flex items-center justify-end">
         <button
           class="p-2"
@@ -73,10 +93,10 @@ router.afterEach(() => close())
         </button>
       </div>
 
-      <!-- Overlay เมนูมือถือ: ทึบ เต็มจอ -->
+      <!-- Mobile overlay -->
       <transition name="fade-slide">
         <div v-if="isOpen" class="fixed inset-0 z-40 bg-black/85">
-          <!-- ปุ่มปิดมุมขวาบน -->
+          <!-- close button -->
           <button
             class="absolute top-4 right-4 p-2 text-white/90"
             @click="close"
@@ -87,21 +107,33 @@ router.afterEach(() => close())
             </svg>
           </button>
 
-          <!-- โลโก้ด้านบนกึ่งกลาง (ใน overlay) -->
+          <!-- logo -->
           <div class="pt-12 flex justify-center">
             <img src="@/assets/svg/cmans-tech-Hori-white.svg" alt="CMANS TECH" class="h-8 w-[200px] opacity-95" />
           </div>
 
-          <!-- รายการเมนู -->
-          <div class="h-full flex items-center justify-center">
+          <!-- menu links -->
+          <div class="h-full flex flex-col items-center justify-center gap-10">
             <ul class="w-[80%] max-w-sm space-y-3 text-center text-(--primary-eggwhite)">
-              <li><RouterLink class="mobile-link" to="/"         @click="close">Home</RouterLink></li>
-              <li><RouterLink class="mobile-link" to="/about"    @click="close">About Us</RouterLink></li>
-              <li><RouterLink class="mobile-link" to="/services" @click="close">Services</RouterLink></li>
-              <li><RouterLink class="mobile-link" to="/projects" @click="close">Projects</RouterLink></li>
-              <li><RouterLink class="mobile-link" to="/contact"  @click="close">Contact Us</RouterLink></li>
-              <!-- <li><RouterLink class="mobile-link" to="/blog"     @click="close">Blog</RouterLink></li> -->
+              <li><RouterLink class="mobile-link" to="/"         @click="close">{{ t('nav.home') }}</RouterLink></li>
+              <li><RouterLink class="mobile-link" to="/about"    @click="close">{{ t('nav.about') }}</RouterLink></li>
+              <li><RouterLink class="mobile-link" to="/services" @click="close">{{ t('nav.services') }}</RouterLink></li>
+              <li><RouterLink class="mobile-link" to="/projects" @click="close">{{ t('nav.projects') }}</RouterLink></li>
+              <li><RouterLink class="mobile-link" to="/contact"  @click="close">{{ t('nav.contact') }}</RouterLink></li>
             </ul>
+
+            <!-- lang switcher -->
+            <div class="flex items-center gap-3 text-white text-lg font-mono">
+              <button
+                :class="locale === 'en' ? 'opacity-100' : 'opacity-40'"
+                @click="setLocale('en')"
+              >EN</button>
+              <span class="opacity-40">|</span>
+              <button
+                :class="locale === 'th' ? 'opacity-100' : 'opacity-40'"
+                @click="setLocale('th')"
+              >TH</button>
+            </div>
           </div>
         </div>
       </transition>
@@ -110,7 +142,7 @@ router.afterEach(() => close())
 </template>
 
 <style scoped>
-.nav-link{
+.nav-link {
   font-family: var(--display-en);
   font-size: 14pt;
   color: inherit;
@@ -118,8 +150,18 @@ router.afterEach(() => close())
 }
 .nav-link:hover { opacity: .7; }
 
-/* mobile overlay links ใหญ่ คลิกง่าย */
-.mobile-link{
+.lang-btn {
+  font-family: var(--display-en);
+  font-size: 13px;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity .2s ease;
+}
+.lang-btn:hover { opacity: 1 !important; }
+
+.mobile-link {
   font-family: var(--display-en);
   font-size: 22px;
   display: block;
@@ -128,7 +170,6 @@ router.afterEach(() => close())
 }
 .mobile-link:hover { opacity: .8; }
 
-/* transition ตรงกับ name="fade-slide" */
 .fade-slide-enter-active, .fade-slide-leave-active { transition: all .28s ease; }
 .fade-slide-enter-from { opacity: 0; transform: translateY(-8px); }
 .fade-slide-leave-to   { opacity: 0; transform: translateY(-8px); }
